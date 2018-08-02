@@ -1,0 +1,168 @@
+<!Doctype html>
+<html>
+<head>
+    <title>Complete</title>
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <link href="primary.css" rel="stylesheet">
+
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <style>
+   	.btn {
+   	border: none;
+   	background-color: inherit;
+   	padding: 28px 56px;
+   	font-size: 40px;
+   	cursor: pointer;
+   	display: inline-block;
+   }
+
+   .btn:hover {background: #eee;}
+
+   .jokes {color: green;}
+   .questions {color: dodgerblue;}
+
+   	</style>
+
+  </head>
+<body>
+  <div class="nav_bar">
+    <ul>
+      <li><a href="complete.html">Home</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <a class="navbar-brand"href="complete.html">
+        <img id="logo" alt="Complete" src="logo.png"/>
+      </a>
+    </ul>
+  </div>
+  <div class="main_container">
+    <body style="width: 90%">
+    <h1><center>'Don't talk to strangers!'</center></h1>
+	<p>Most of us duck our heads and stare at our phones when faced with strangers.
+  	Whether it's in a train, bus, or uber, most people don't interact with others around them.
+  	They're worried that the stranger might be mean, dangerous or just not want to talk,
+  	and while those concerns may be legitimate, it's been shown that chatting with strangers
+   	makes you happier and improves your day!
+    <br>
+    <br>
+    However, finding something to talk about can be challenging. This page is here to help you. Below are some jokes and topics to bring up!
+  </p>
+  <br>
+     	<center>
+     	<h1><button class= "btn" onclick="jokeTable()">Jokes</button></h1>
+     	<h1><button class= "btn" onclick="conversationStarters()">Conversation Starters</button></h1>
+    </center>
+    <div id="jokeTable" style="display:none">
+      <table style="width:100%">
+    	<center>
+      <tr>
+    	<td>What did the sushi say to the bee?</td>
+    	<td>Wasabi!</td>
+      </tr>
+      <tr>
+    	<td>Why do ducks have flat feet?</td>
+    	<td>to stomp outforest fires!</td>
+      </tr>
+      <tr>
+    	<td>Why do elephants have flat feet?</td>
+    	<td>to stomp out flaming ducks!</td>
+
+      </tr>
+      <tr>
+    	<td>How do you make a jacket last?</td>
+    	<td>Make the trousers first!</td>
+      </center>
+      </table>
+    </div>
+    <div id="questions" style="display:none">
+      <table style="width:100%">
+    	<p><tr><td>What do you do in your free time?</tr></td></p>
+    	<tr><td>How do you get along with the people you work with?</tr></td>
+    	<tr><td>What countries have you traveled to?</tr></td>
+    	<tr><td>Do you speak any other languages?</tr></td>
+    	<tr><td>What’s your favorite movie (or TV show) ever?</tr></td>
+    	<tr><td>Talk about a recent restaurant you or they went to.</tr></td>
+    	<tr><td>more stuff!</tr></td>
+
+      </table>
+    </div>
+    <script>
+
+    function conversationStarters(){
+      if (document.getElementById("questions").style.display == "none"){
+    	document.getElementById("questions").style.display = "block";
+    	document.getElementById("jokeTable").style.display = "none";
+
+      }
+      else {
+    	document.getElementById("questions").style.block = "none";
+      }
+
+    }
+    function jokeTable(){
+      if (document.getElementById("jokeTable").style.display == "none"){
+    	document.getElementById("questions").style.display = "none";
+    	document.getElementById("jokeTable").style.display = "block";
+
+      }
+      else {
+    	document.getElementById("jokeTable").style.display = "none";
+      }
+
+    }
+    </script>
+
+        <div class="row text-center">
+
+            <div class="col-md-4">
+              <!-- Font Awesome gives you access to tons of FREE icons -->
+              <!-- Change one of the icons by changing 'fa-clock-o'
+                  with an icon name found on : http://fontawesome.io/icons/
+              -->
+              <span class="fa-stack fa-4x">
+                <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <a href="mind.html"><i class="fa fa-eye fa-stack-1x fa-inverse"></i></a>
+                  </span>
+              <h4 class="value-prop-heading">Mind</h4>
+              <p class="text-muted">Learn more about how you can be the brightest person in the room!</p>
+              </div>
+              <div class="col-md-4">
+                  <span class="fa-stack fa-4x">
+                      <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                      <a href="body.html"><i class="fa fa-male fa-stack-1x fa-inverse"></i></a>
+                  </span>
+              <h4 class="value-prop-heading">Body</h4>
+              <p class="text-muted">Tips and tricks for looking your best!</p>
+              </div>
+
+              <!-- ADD A THIRD VALUE PROPOSITION HERE -->
+              <div class="col-md-4">
+                  <span class="fa-stack fa-4x">
+                      <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                      <a href="soul.html"><i class="fa fa-fire fa-stack-1x fa-inverse"></i></a>
+                  </span>
+
+              <h4 class="value-prop-heading">Soul</h4>
+              <p class="text-muted">Obtain inner peace and spirituality</p>
+              </div>
+      </div>
+
+      </body>
+
+
+      </div>
+      </body>
+
+      </html>
+
+    </div>
+  </body>
+  </html>

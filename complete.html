@@ -5,22 +5,17 @@
   <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   <link href="primary.css" rel="stylesheet">
-   <link href="mousedots.js" rel="mousedots">
-
-
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="primary.css" rel="stylesheet">
+  <script src="dots.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-
-  </body>
   <div class="nav_bar">
     <ul>
       <li><a href="complete.html"id="onlink">Home</a></li>
@@ -34,7 +29,7 @@
     <br>
     <body style="width: 90%">
     <h1><center>Mission Statement</center></h1>
-	<p>We, as a team, are passionate about the wellness of the people who roam this earth. It is not often that we stop to think about our own well-being, as we continue to worry about our day-to-day responsibilities. This website was created to bring awareness to the Mind, Body, and Soul in ways you may not have thought of before. We will open your eyes to the world of conversation and humor, strength and wellness through exercise, health by knowledge of vaccines, and the spiritual experience that makes music so powerful. We hope you find clarity and happiness through the experience we have created.</p>
+      <p>We, as a team, are passionate about the wellness of the people who roam this earth. It is not often that we stop to think about our own well-being, as we continue to worry about our day-to-day responsibilities. This website was created to bring awareness to the Mind, Body, and Spirit in ways you may not have thought of before. We will open your eyes to the world of conversation and humor, strength and wellness through exercise, health by knowledge of vaccines, and the spiritual experience that makes music so powerful. We hope you find clarity and happiness though the experience we have created.</p>
     <div class="row text-center">
 
         <div class="col-md-4">
@@ -46,16 +41,16 @@
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
             <a href="mind.html"><i class="fa fa-eye fa-stack-1x fa-inverse"></i></a>
               </span>
-          <h1 class="value-prop-heading">Mind</h1>
-          <p class="text-muted">Be the brightest person in the room!</p>
+          <h4 class="value-prop-heading">Mind</h4>
+          <p>Be the brightest person in the room!</p>
           </div>
           <div class="col-md-4">
               <span class="fa-stack fa-4x">
                   <i class="fa fa-circle fa-stack-2x text-primary"></i>
                   <a href="body.html"><i class="fa fa-male fa-stack-1x fa-inverse"></i></a>
               </span>
-          <h1 class="value-prop-heading">Body</h1>
-          <p class="text-muted">Tips and tricks for looking your best!</p>
+          <h4 class="value-prop-heading">Body</h4>
+          <p>Tips and tricks for looking your best!</p>
           </div>
 
           <!-- ADD A THIRD VALUE PROPOSITION HERE -->
@@ -65,14 +60,110 @@
                   <a href="soul.html"><i class="fa fa-fire fa-stack-1x fa-inverse"></i></a>
               </span>
 
-          <h1 class="value-prop-heading">Soul</h1>
-          <p class="text-muted">Obtain inner peace and spirituality!</p>
+          <h4 class="value-prop-heading">Soul</h4>
+          <p>Obtain inner peace and spirituality</p>
           </div>
-  </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    // ----------------------------------------
+    // Particle
+    // ----------------------------------------
+    function Particle( x, y, radius ) {
+        this.init( x, y, radius );
+    }
+    Particle.prototype = {
+        init: function( x, y, radius ) {
+            this.alive = true;
+            this.radius = radius || 10;
+            this.wander = 0.15;
+            this.theta = random( TWO_PI );
+            this.drag = 0.92;
+            this.color = '#fff';
+            this.x = x || 0.0;
+            this.y = y || 0.0;
+            this.vx = 0.0;
+            this.vy = 0.0;
+        },
+        move: function() {
+            this.x += this.vx;
+            this.y += this.vy;
+            this.vx *= this.drag;
+            this.vy *= this.drag;
+            this.theta += random( -0.5, 0.5 ) * this.wander;
+            this.vx += sin( this.theta ) * 0.1;
+            this.vy += cos( this.theta ) * 0.1;
+            this.radius *= 0.96;
+            this.alive = this.radius > 0.5;
+        },
+        draw: function( ctx ) {
+            ctx.beginPath();
+            ctx.arc( this.x, this.y, this.radius, 0, TWO_PI );
+            ctx.fillStyle = this.color;
+            ctx.fill();
+        }
+    };
+    // ----------------------------------------
+    // Example
+    // ----------------------------------------
+    var MAX_PARTICLES = 280;
+    var COLOURS = [ '#69D2E7', '#A7DBD8', '#E0E4CC', '#F38630', '#FA6900', '#FF4E50', '#F9D423' ];
+    var particles = [];
+    var pool = [];
+    var demo = Sketch.create({
+        container: document.getElementById( 'container' ),
+        retina: 'auto'
+    });
+    demo.setup = function() {
+        // Set off some initial particles.
+        var i, x, y;
+        for ( i = 0; i < 20; i++ ) {
+            x = ( demo.width * 0.5 ) + random( -100, 100 );
+            y = ( demo.height * 0.5 ) + random( -100, 100 );
+            demo.spawn( x, y );
+        }
+    };
+    demo.spawn = function( x, y ) {
 
- </body>
+        var particle, theta, force;
+        if ( particles.length >= MAX_PARTICLES )
+            pool.push( particles.shift() );
+        particle = pool.length ? pool.pop() : new Particle();
+        particle.init( x, y, random( 5, 40 ) );
+        particle.wander = random( 0.5, 2.0 );
+        particle.color = random( COLOURS );
+        particle.drag = random( 0.9, 0.99 );
+        theta = random( TWO_PI );
+        force = random( 2, 8 );
+        particle.vx = sin( theta ) * force;
+        particle.vy = cos( theta ) * force;
+        particles.push( particle );
+    };
+    demo.update = function() {
+        var i, particle;
+        for ( i = particles.length - 1; i >= 0; i-- ) {
+            particle = particles[i];
+            if ( particle.alive ) particle.move();
+            else pool.push( particles.splice( i, 1 )[0] );
+        }
+    };
+    demo.draw = function() {
+        demo.globalCompositeOperation  = 'lighter';
+        for ( var i = particles.length - 1; i >= 0; i-- ) {
+            particles[i].draw( demo );
+        }
+    };
+    demo.mousemove = function() {
+        var particle, theta, force, touch, max, i, j, n;
+        for ( i = 0, n = demo.touches.length; i < n; i++ ) {
+            touch = demo.touches[i], max = random( 1, 4 );
+            for ( j = 0; j < max; j++ ) {
+              demo.spawn( touch.x, touch.y );
+            }
+        }
+    };
 
+    </script>
 
-  </div>
-	
-</body>
+</html>

@@ -6,16 +6,200 @@
     <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
     <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
      <link href="primary.css" rel="stylesheet">
 
-
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+     <title>Complete</title>
+     <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+     <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link href="primary.css" rel="stylesheet">
+      <script src="squares.js"> </script>
+
+      <script type="text/javascript">
+      // <![CDATA[
+      var colour="#00baff";
+      var sparkles=120;
+
+      /****************************
+      *  Tinkerbell Magic Sparkle *
+      * (c) 2005 mf2fm web-design *
+      *  http://www.mf2fm.com/rv  *
+      * DON'T EDIT BELOW THIS BOX *
+      ****************************/
+      var x=ox=10000;
+      var y=oy=300;
+      var swide=800;
+      var shigh=600;
+      var sleft=sdown=0;
+      var tiny=new Array();
+      var star=new Array();
+      var starv=new Array();
+      var starx=new Array();
+      var stary=new Array();
+      var tinyx=new Array();
+      var tinyy=new Array();
+      var tinyv=new Array();
+
+      window.onload=function() { if (document.getElementById) {
+        var i, rats, rlef, rdow;
+        for (var i=0; i<sparkles; i++) {
+          var rats=createDiv(3, 3);
+          rats.style.visibility="hidden";
+          document.body.appendChild(tiny[i]=rats);
+          starv[i]=0;
+          tinyv[i]=0;
+          var rats=createDiv(5, 5);
+          rats.style.backgroundColor="transparent";
+          rats.style.visibility="hidden";
+          var rlef=createDiv(1, 5);
+          var rdow=createDiv(5, 1);
+          rats.appendChild(rlef);
+          rats.appendChild(rdow);
+          rlef.style.top="2px";
+          rlef.style.left="0px";
+          rdow.style.top="0px";
+          rdow.style.left="2px";
+          document.body.appendChild(star[i]=rats);
+        }
+        set_width();
+        sparkle();
+      }}
+
+      function sparkle() {
+        var c;
+        if (x!=ox || y!=oy) {
+          ox=x;
+          oy=y;
+          for (c=0; c<sparkles; c++) if (!starv[c]) {
+            star[c].style.left=(starx[c]=x)+"px";
+            star[c].style.top=(stary[c]=y)+"px";
+            star[c].style.clip="rect(0px, 5px, 5px, 0px)";
+            star[c].style.visibility="visible";
+            starv[c]=50;
+            break;
+          }
+        }
+        for (c=0; c<sparkles; c++) {
+          if (starv[c]) update_star(c);
+          if (tinyv[c]) update_tiny(c);
+        }
+        setTimeout("sparkle()", 40);
+      }
+
+      function update_star(i) {
+        if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
+        if (starv[i]) {
+          stary[i]+=1+Math.random()*3;
+          if (stary[i]<shigh+sdown) {
+            star[i].style.top=stary[i]+"px";
+            starx[i]+=(i%5-2)/5;
+            star[i].style.left=starx[i]+"px";
+          }
+          else {
+            star[i].style.visibility="hidden";
+            starv[i]=0;
+            return;
+          }
+        }
+        else {
+          tinyv[i]=50;
+          tiny[i].style.top=(tinyy[i]=stary[i])+"px";
+          tiny[i].style.left=(tinyx[i]=starx[i])+"px";
+          tiny[i].style.width="2px";
+          tiny[i].style.height="2px";
+          star[i].style.visibility="hidden";
+          tiny[i].style.visibility="visible"
+        }
+      }
+
+      function update_tiny(i) {
+        if (--tinyv[i]==25) {
+          tiny[i].style.width="1px";
+          tiny[i].style.height="1px";
+        }
+        if (tinyv[i]) {
+          tinyy[i]+=1+Math.random()*3;
+          if (tinyy[i]<shigh+sdown) {
+            tiny[i].style.top=tinyy[i]+"px";
+            tinyx[i]+=(i%5-2)/5;
+            tiny[i].style.left=tinyx[i]+"px";
+          }
+          else {
+            tiny[i].style.visibility="hidden";
+            tinyv[i]=0;
+            return;
+          }
+        }
+        else tiny[i].style.visibility="hidden";
+      }
+
+      document.onmousemove=mouse;
+      function mouse(e) {
+        set_scroll();
+        y=(e)?e.pageY:event.y+sdown;
+        x=(e)?e.pageX:event.x+sleft;
+      }
+
+      function set_scroll() {
+        if (typeof(self.pageYOffset)=="number") {
+          sdown=self.pageYOffset;
+          sleft=self.pageXOffset;
+        }
+        else if (document.body.scrollTop || document.body.scrollLeft) {
+          sdown=document.body.scrollTop;
+          sleft=document.body.scrollLeft;
+        }
+        else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+          sleft=document.documentElement.scrollLeft;
+      	sdown=document.documentElement.scrollTop;
+        }
+        else {
+          sdown=0;
+          sleft=0;
+        }
+      }
+
+      window.onresize=set_width;
+      function set_width() {
+        if (typeof(self.innerWidth)=="number") {
+          swide=self.innerWidth;
+          shigh=self.innerHeight;
+        }
+        else if (document.documentElement && document.documentElement.clientWidth) {
+          swide=document.documentElement.clientWidth;
+          shigh=document.documentElement.clientHeight;
+        }
+        else if (document.body.clientWidth) {
+          swide=document.body.clientWidth;
+          shigh=document.body.clientHeight;
+        }
+      }
+
+      function createDiv(height, width) {
+        var div=document.createElement("div");
+        div.style.position="absolute";
+        div.style.height=height+"px";
+        div.style.width=width+"px";
+        div.style.overflow="hidden";
+        div.style.backgroundColor=colour;
+        return (div);
+      }
+      // ]]>
+      </script>
 
 </head>
 <body>
@@ -35,7 +219,8 @@
   <div class="main_container">
     <br>
     <body style="width: 90%">
-    <center><h1>Vaccines:</h1></center>
+    <center><h1>Vaccines</h1></center>
+    <center><img src="vaccine.png" alt="Vaccine picture" width="450" height="337.5"></center>
     <p>Vaccination is when you treat someone with a vaccine to prevent diseases from getting to them. It produces immunity to do the job. Our main concern is that some parents choose not to give their kids, whether they are young children or teenagers, a vaccine shot including themselves. We, on the other hand, encourage them to get it done and as well as keep everyone safe around as it is really important and necessary. Without vaccination, we can’t guarantee your protection against diseases so schedule an appointment to your docs now!</p>
 
 
@@ -47,9 +232,8 @@
 </p>
 <p>Tuberculosis - caused by a bacteria found in the lungs that can cause chest pain and a bad cough, as well as lead to a number of other nasty side-effects
 </p>
-<p>Influenza - a viral infection that attacks the lungs, nose and throat and is caused by the influenza virus</p>
-  <img src="vaccine.png">
-        
+<p>Influenza - a viral infection that attacks the lungs, nose and throat and is caused by the influenza virus
+</p>
 <br>
 <center><h1>Exercising</h1></center>
 <p>Exercise is key for your overall wellness. Studies have shown that not enough exercise can cause direct correlation to irritation and mood swings. In addition, the physical It is recommended that you slowly ease into your exercise routine and make it a daily thing instead of doing it on and off.  It will be challenging at first, getting off your couch or your bed to “workout”? Who wants to do that? Don’t worry about others and their lack or obsession with exercising. Go at your own pace. Before you know it, you’ll feel amazing mentally and physically!
@@ -58,6 +242,7 @@
 <p>
 Here is a sample training plan to get you on your feet. Feel free to change it to lessen or quicken the pace or to even tweak it to do an activity you enjoy! Just remember to keep it balanced. We have also included a free monthly meal plan for you to follow when you begin.
 </p>
+<center><p><a href="mealplan.html"><img src="clickhere.png" alt="Click Here" width="300" height="300"></a></p></center>
 <div class="row text-center">
 
     <div class="col-md-4">
@@ -74,7 +259,7 @@ Here is a sample training plan to get you on your feet. Feel free to change it t
       </div>
       <div class="col-md-4">
           <span class="fa-stack fa-4x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-circle fa-stack-2x text-onpage"></i>
               <a href="body.html"><i class="fa fa-male fa-stack-1x fa-inverse"></i></a>
           </span>
       <h1 class="value-prop-heading">Body</h1>

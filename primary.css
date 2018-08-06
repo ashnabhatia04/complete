@@ -1,6 +1,4 @@
 
-
-
 .main-section {
     background: white;
 }
@@ -8,6 +6,10 @@
 .text-primary {
     color: #00C5CD;
     opacity:.75;
+}
+.text-onpage {
+  color:lightpink;
+  opacity:.75
 }
 
 body{
@@ -23,21 +25,13 @@ h1{
 #logo
 {
   position:fixed;
-  height: 93px;
-  width: 260px;
+  height: 80px;
+  width: 250px;
   right:120px;
   top:5px;
 
 }
 
-#mindicon
-{
-  position:fixed;
-  height: 70px;
-  width:72;
-  top:500px;
-  right:500px;
-}
 
 
 
@@ -100,8 +94,9 @@ h1{
   opacity:.75;
 }
 .main_container p{
-  font-family:'Fjalla One', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size:18px;
   margin:20px;
   padding:20px;
 }
+

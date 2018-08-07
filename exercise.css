@@ -1,0 +1,39 @@
+body {
+  background-color: #545E75;
+  #333333-Jet;
+  #F2A359;
+  //#2E3532
+  #E0ACD5- Light Orchard
+  #644536-Van Dyke Brown
+  #DB9065- Pale Copper
+  #CC8B86-Puce
+  #8E443D- Chestnut
+  #F2DC5D- Stil De Grain Yellow;
+}
+h1 {
+  color: #9CFFFA;
+   #AAD922;
+  #E56B70;
+  //#F5C396;
+  font-size: 80px;
+  text-align: center;
+}
+
+h2 {
+  color: #861657;
+}
+strong{
+  font-size: 40px;
+}
+div {
+  color: #FEFFFE;
+  //#F8FCDA;
+  //#F2E3BC;
+  font-size: 20px;
+}
+
+p {
+    color: #FEFFFE;
+    //#F8FCDA;
+    //#F2E3BC;
+}

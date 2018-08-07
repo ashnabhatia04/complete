@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link href="primary.css" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+<!-- Optional: some overlay text to describe the video -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  <video autoplay muted loop id="myVideo">
+  <source src="Raindrops_Videvo.mp4" type="video/mp4">
+</video>
+   * {
+      box-sizing: border-box;
+  }
+   <body> {
+       margin: 0;
+      font-family: Arial;
+      font-size: 17px;
+  }
+   #myVideo {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+  }
+   .content {
+      position: fixed;
+      top:30%;
+      bottom:50%;
+      height: 200;
+      width: 100;
+      color: #f1f1f1;
+      width: 100%;
+      padding: 20px;
+  }
+   #myBtn {
+      width: 200px;
+      font-size: 18px;
+      padding: 10px;
+      border: none;
+      background: #000;
+      color: #A23B72;
+      opacity: .75;
+      cursor: pointer;
+  }
+   #myBtn:hover {
+      background: #ddd;
+      color: black;
+      opacity:.75;
+  }
+  .container {
+  position: relative;
+  width: 50%;
+}
+ .image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+ .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+ .container:hover .overlay {
+  height: 100%;
+}
+ .text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+  </style>
+  </head>
+</body>
+   <video autoplay muted loop id="myVideo">
+    <source src="rain.mp4" type="video/mp4">
+  </video>
+   <div class="content">
+    <center><h1>Welcome to COMPLETE</h1>
+    <button id="myBtn" onclick="location.href='complete.html';">Get Started</button></center>
+  </div>
+</head>
+<body>
+
+   <a class="navbar-brand"href="complete.html">
+     <img id="logo2" alt="Complete" src="logo2.png"/>
+  </div>
+</div>
+  <script>
+  var video = document.getElementById("myVideo");
+  var btn = document.getElementById("myBtn");
+   function myFunction() {
+    if (video.paused) {
+      video.play();
+      btn.innerHTML = "Get Started";
+    } else {
+      video.pause();
+      btn.innerHTML = "Get Started";
+    }
+  }
+   </script>
+ </body>
+</html>

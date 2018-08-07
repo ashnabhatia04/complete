@@ -100,3 +100,9 @@ h1{
   padding:20px;
 }
 
+td{
+  text-align: center;
+  font-family:'Raleway', sans-serif;
+  font-size:18px;
+
+}
